@@ -1,0 +1,6 @@
+
+In memory database used is redis
+1. Redis is fast to access
+2. Redis is much flexible than all the other in-memory database(atleast the ones I know of), it can store a wider range of data structures
+3. Redis is simple to use
+4. Redis is highly scalable. It is consistent and reliable

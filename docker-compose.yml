@@ -7,16 +7,22 @@ services:
     ports:
       - target: 8080
         published: 8080
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+    environment:
+      - REDIS_HOST=redis-server
     depends_on:
-      - redis
-  redis:
+      - redis-server
+  redis-server:
     image: redis:latest
     restart: always
-    ports:
-      - '6379:6379'
     command: redis-server --save 20 1 --loglevel warning
     volumes: 
       - cache:/data
+    ports:
+      - target: 6379
+        published: 6379
 volumes:
   cache:
     driver: local

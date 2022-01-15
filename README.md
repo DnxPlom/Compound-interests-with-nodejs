@@ -15,3 +15,6 @@ To run the application on docker:
   }
 2. http://{HOST}/api/customers/:customer_id/history/ ===> Takes customer_id as parameter. Retriveves customers transactions
 3. http://{HOST}/api/customers/:customer_id/ ===> Takes customer_id as parameter. Deletes customer records by id
+
+### postman links:
+  https://www.getpostman.com/collections/9dfdfcfd0a860f4cdba8

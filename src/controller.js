@@ -4,7 +4,6 @@ const redisClient = require('../redis-client');
 const sqlite3 = require("sqlite3");
 const { open } = require("sqlite");
 const path = require("path");
-const { json } = require('body-parser');
 
 // get or create sqlite db 
 let sqlitedb;

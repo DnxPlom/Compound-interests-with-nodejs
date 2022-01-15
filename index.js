@@ -1,5 +1,7 @@
 const express = require("express");
 const router = require("./src/router");
+ const redisClient = require('./redis-client');
+
 
 HOST = "0.0.0.0"
 PORT = 8080

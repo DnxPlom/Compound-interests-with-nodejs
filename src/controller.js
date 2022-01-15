@@ -47,11 +47,13 @@ const controller = {
             yearly_compound_times
         } = req.body
     
-        if (!deposit || !customer_id || ! interest_rate || !yearly_compound_times) {
+        console.log(req.body)
+
+        if (!deposit || !customer_id || !interest_rate || !yearly_compound_times) {
             res.send({"message": "Missing input"})
         }
         
-        let apy = calculateInterest(interest_rate, yearly_compound_times)
+        let apy = calculateInterest(parseFloat(interest_rate), parseInt(yearly_compound_times))
         let gain = Number(deposit) + (Number(deposit) * apy)
         console.log(gain)
         const apyQuery = `
@@ -63,7 +65,7 @@ const controller = {
         await sqlitedb.run(apyQuery)
 
         // remove redis instance 
-        redisClient.del(customer_id)
+        redisClient.del(customer_id + "")
 
         
         res.send({
